@@ -22,8 +22,6 @@ gradlePlugin {
     }
 }
 
-group 'xyz.ronella.gradle.plugin'
-
 sourceCompatibility = 1.8
 
 repositories {
