@@ -1,6 +1,6 @@
 # Gradle Plugin Template
 
-A basic gradle project for gosu library development.
+A basic gradle project for plugin library development.
 
 ## Usage
 
