@@ -1,13 +1,9 @@
 package xyz.ronella.gradle.plugin
 
-class TemplateGradlePluginExtension {
+import org.gradle.api.provider.Property
 
-    public boolean verbose = false
+interface TemplateGradlePluginExtension {
 
-    public void writeln(String text) {
-        if (verbose) {
-            println(text)
-        }
-    }
+    Property<Boolean> getVerbose()
 
 }

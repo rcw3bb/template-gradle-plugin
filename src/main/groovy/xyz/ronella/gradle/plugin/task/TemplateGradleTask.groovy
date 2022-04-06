@@ -4,12 +4,23 @@ import org.gradle.api.DefaultTask
 import org.gradle.api.tasks.TaskAction
 import xyz.ronella.gradle.plugin.TemplateGradlePluginExtension
 
-class TemplateGradleTask extends DefaultTask {
+abstract class TemplateGradleTask extends DefaultTask {
+
+    final TemplateGradlePluginExtension EXTENSION
+
+    TemplateGradleTask() {
+        EXTENSION = project.extensions.template_gradle_plugin
+    }
+
+    protected void writeln(String text) {
+        if (EXTENSION.verbose.get()) {
+            println(text)
+        }
+    }
 
     @TaskAction
     def executeCommand() {
-        TemplateGradlePluginExtension pluginExt = project.extensions.template_gradle_plugin;
-        pluginExt.writeln("Hello World")
-        pluginExt.verbose = false
+        writeln("Hello World")
+        EXTENSION.verbose = false
     }
 }
