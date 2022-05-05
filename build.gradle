@@ -1,9 +1,12 @@
+import com.github.jengelman.gradle.plugins.shadow.tasks.ConfigureShadowRelocation
+
 plugins {
     id 'java'
     id 'groovy'
     id 'java-gradle-plugin'
     id "com.gradle.plugin-publish" version "1.0.0-rc-1"
     id 'maven-publish'
+    id "com.github.johnrengelman.shadow" version "7.1.2"
 }
 
 ext {
@@ -12,6 +15,11 @@ ext {
 }
 
 sourceCompatibility = 1.11
+
+configurations {
+    plugin
+    implementation.extendsFrom(plugin)
+}
 
 pluginBundle {
     website = '<UPDATE>'
@@ -41,6 +49,12 @@ publishing {
             }
         }
     }
+}
+
+shadowJar {
+    configurations = [project.configurations.plugin]
+    archiveClassifier.set("")
+    relocate 'xyz.ronella.trivial', "${project.group}.trivial"
 }
 
 repositories {
@@ -75,6 +89,8 @@ repositories {
 }
 
 dependencies {
+    plugin 'xyz.ronella.casual:trivial-chunk:2.4.0'
+
     implementation gradleApi()
     implementation localGroovy()
 
@@ -84,6 +100,9 @@ dependencies {
     testImplementation 'org.mockito:mockito-core:4.4.0'
     testImplementation 'org.mockito:mockito-inline:4.4.0'
 }
+
+jar.enabled = false
+jar.dependsOn shadowJar
 
 test {
     useJUnitPlatform()
