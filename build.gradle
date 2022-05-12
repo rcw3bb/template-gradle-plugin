@@ -1,5 +1,3 @@
-import com.github.jengelman.gradle.plugins.shadow.tasks.ConfigureShadowRelocation
-
 plugins {
     id 'java'
     id 'groovy'
@@ -54,7 +52,7 @@ publishing {
 shadowJar {
     configurations = [project.configurations.plugin]
     archiveClassifier.set("")
-    relocate 'xyz.ronella.trivial', "${project.group}.trivial"
+    relocate 'xyz.ronella.trivial', "${project.group}.shadow.trivial"
 }
 
 repositories {
