@@ -87,7 +87,7 @@ repositories {
 }
 
 dependencies {
-    plugin 'xyz.ronella.casual:trivial-chunk:2.5.1'
+    plugin 'xyz.ronella.casual:trivial-chunk:2.6.0'
 
     implementation gradleApi()
     implementation localGroovy()
