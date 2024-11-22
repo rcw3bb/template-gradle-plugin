@@ -1,17 +1,7 @@
-pluginManagement {
-    repositories {
-        if (Boolean.valueOf(USE_PRIVATE_REPO)) {
-            println "Using Private Repository for plugin"
-            maven {
-                url 'https://repo.ronella.xyz/artifactory/java-central'
-                credentials {
-                    username "${artifactoryUsername}"
-                    password "${artifactoryPassword}"
-                }
-            }
-        }
-        else {
-            gradlePluginPortal()
+dependencyResolutionManagement {
+    versionCatalogs {
+        testLibs {
+            from(files('gradle/test-libs.versions.toml'))
         }
     }
 }
