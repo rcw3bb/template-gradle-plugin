@@ -2,7 +2,7 @@
 
 ## Pre-requisite
 
-* Java 11 *(minimum)*
+* Java 21
 
 ## Running Unit Test
 
@@ -20,5 +20,5 @@ Run the following command to where you've cloned this repository:
 gradlew jar
 ```
 
-> The **generated jar** file will be in the **libs directory** inside the **build directory** from where you've cloned the this repository.
+> The **generated jar** file will be in the **libs directory** inside the **build directory** from where you've cloned this repository.
 
