@@ -3,9 +3,11 @@ trivial-chunk-version = { require = "latest.release"}
 gradle-plugin-publish-version = { require = "latest.release" }
 shadow-version = { require = "latest.release"}
 #snyk-version = { require = "latest.release" }
+pmd-version = { require = "latest.release" }
 
 [libraries]
 trivial-chunk = { module = "xyz.ronella.casual:trivial-chunk", version.ref = "trivial-chunk-version" }
+pmd = { module = "net.sourceforge.pmd:pmd-core", version.ref = "pmd-version" }
 
 [bundles]
 
